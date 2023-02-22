@@ -6,5 +6,5 @@ app.get('/', (req, res) => {
   res.send('ola mundo');
 });
 app.listen(3000, () => {
-  console.log();
+  console.log('Sevidor rodando na porta 3000');
 });
