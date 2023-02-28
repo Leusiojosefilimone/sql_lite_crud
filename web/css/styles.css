@@ -1,0 +1,40 @@
+body{
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: justify;
+
+}
+img{
+    max-width: 100%;
+}
+h1,
+h2,
+h3{
+    margin: 1rem;
+    text-align: center;
+}
+section{
+    margin-top: 2rem;
+}
+.large{
+    width: 750px;
+    height: 600px;
+}
+.icon{
+    width: 30px;
+    height: 20px;
+}
+.banner{
+    width: 750px;
+    height: 100px;
+}
+footer{
+    width: 750px;
+    border: 1px solid blue;
+
+}
+address{
+    padding-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
