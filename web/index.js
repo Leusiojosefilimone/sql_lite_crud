@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/'))
 
 //server configurations
 app.set('views engine', 'ejs')
-app.set('views', path.join(__dirname, ''))
+app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended: false}))
 app.listen(3000, ()=>{
     console.log('server started on 3000 port')
@@ -41,14 +41,17 @@ app.get("/", (req, res) => {
     res.render('index.ejs')
 })
 
-app.get("/constacts", (req, res) => {
-    res.render('conatacts.ejs')
+app.get("/contacts", (req, res) => {
+    res.render('contacts.ejs')
 })
 
 app.get("/about", (req, res) => {
     res.render('about.ejs')
 })
 
-app.get("/produts", (req, res) => {
-    res.render('produts.ejs')
+app.get("/products", (req, res) => {
+    res.render('products.ejs')
+})
+app.get("*", (req, res) => {
+    res.render('notfound.ejs')
 })
