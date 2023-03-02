@@ -55,3 +55,15 @@ app.get("/products", (req, res) => {
 app.get("*", (req, res) => {
     res.render('notfound.ejs')
 })
+
+//show the products table
+app.get("/contacts", (req, res) => {
+    const sql="SELECT * FROM Products ORER BY  Nome"
+    db.all(sql, [], (error, rovs) => {
+        if(error){
+            return console.error(error.message)
+        }else{
+            res.render("products.ejs", {modelo: rovs})
+        }
+    } )
+})
