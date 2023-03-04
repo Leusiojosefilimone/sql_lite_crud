@@ -2,7 +2,7 @@
   "name": "sqllite",
   "version": "1.0.0",
   "description": "a simple crud app whith sqlite",
-  "main": "web/index.js",
+  "main": "src/restwithnodejssqlite3.js",
   "scripts": {
     "start":"nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
