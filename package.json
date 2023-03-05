@@ -4,7 +4,7 @@
   "description": "a simple crud app whith sqlite",
   "main": "src/restwithnodejssqlite3.js",
   "scripts": {
-    "start":"nodemon index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/Leusiojosefilimone/sql_lite_crud#readme",
   "dependencies": {
-    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "sqlite3": "^5.1.4"
   },

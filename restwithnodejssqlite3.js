@@ -33,28 +33,28 @@ const db = new sqlite3.Database('./emp_database.db', (err) => {
 
 app.get("/employees/:id", (req, res, next) => {
     var params = [req.params.id]
-    db.get(`SELECT * FROM employees where employee_id = ?`, [req.params.id], (err, row) => {
+    db.get("SELECT * FROM employees where employee_id = ?", [req.params.id], (err, row) => {
         if (err) {
-          res.status(400).json({"error":err.message});
-          return;
+            res.status(400).json({ "error": err.message });
+            return;
         }
         res.status(200).json(row);
-      });
+    });
 });
 
 app.get("/employees", (req, res, next) => {
     db.all("SELECT * FROM employees", [], (err, rows) => {
         if (err) {
-          res.status(400).json({"error":err.message});
-          return;
+            res.status(400).json({ "error": err.message });
+            return;
         }
-        res.status(200).json({rows});
-      });
+        res.status(200).json({ rows });
+    });
 });
 
 app.post("/employees/", (req, res, next) => {
     var reqBody = re.body;
-    db.run(`INSERT INTO employees (last_name, first_name, title, address, country_code) VALUES (?,?,?,?,?)`,
+    db.run("INSERT INTO employees (last_name, first_name, title, address, country_code) VALUES (?,?,?,?,?)",
         [reqBody.last_name, reqBody.first_name, reqBody.title, reqBody.address, reqBody.country_code],
         function (err, result) {
             if (err) {
