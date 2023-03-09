@@ -4,7 +4,7 @@ exports.getAll = (req, res) => {
             res.status(400).json({ "error": err.message });
             return;
         }
-        res.status(200).json({ rows });
+        res.status(200).json( rows );
     })
 }
 
@@ -21,7 +21,7 @@ exports.getOne = (req, res) => {
 }
 
 exports.post = (req, res) => {
-    var reqBody = re.body;
+    var reqBody = req.body;
     db.run("INSERT INTO employees (last_name, first_name, title, address, country_code) VALUES (?,?,?,?,?)",
         [reqBody.last_name, reqBody.first_name, reqBody.title, reqBody.address, reqBody.country_code],
         function (err, result) {
@@ -37,7 +37,7 @@ exports.post = (req, res) => {
 const db = require('../model/employeesModel')
 
 exports.update = (req, res)=>{
-    var reqBody = re.body;
+    var reqBody = req.body;
     db.run(`UPDATE employees set last_name = ?, first_name = ?, title = ?, address = ?, country_code = ? WHERE employee_id = ?`,
         [reqBody.last_name, reqBody.first_name, reqBody.title, reqBody.address, reqBody.country_code, reqBody.employee_id],
         function (err, result) {
@@ -49,14 +49,17 @@ exports.update = (req, res)=>{
         })
 
 }
-exports.delete = (req, res)=>{
+exports.Delete = (req, res)=>{
     db.run(`DELETE FROM user WHERE id = ?`,
     req.params.id,
     function (err, result) {
+      
         if (err) {
             res.status(400).json({ "error": res.message })
             return;
         }
+        console.log("executou")
         res.status(200).json({ deletedID: this.changes })
+        
     });
 }
